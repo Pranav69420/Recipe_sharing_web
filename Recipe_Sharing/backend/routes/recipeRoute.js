@@ -5,8 +5,11 @@ const {
   addRecipe,
   editRecipe,
   deleteRecipe,
+  searchRecipes,
 } = require("../controller/recipeController");
 const router = express.Router();
+// Search and filter recipes
+router.get("/search", searchRecipes);
 
 // Get all recipes
 router.get("/", getRecipes);

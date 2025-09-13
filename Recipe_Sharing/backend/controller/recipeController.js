@@ -1,3 +1,16 @@
+// Search and filter recipes
+const searchRecipes = async (req, res) => {
+  const { title, ingredient } = req.query;
+  let query = {};
+  if (title) {
+    query.title = { $regex: title, $options: "i" };
+  }
+  if (ingredient) {
+    query.ingredients = { $regex: ingredient, $options: "i" };
+  }
+  const recipes = await Recipes.find(query);
+  return res.json(recipes);
+};
 const Recipes = require("../models/recipeSchema");
 
 const getRecipes = async (req, res) => {
@@ -61,4 +74,11 @@ const deleteRecipe = async (req, res) => {
   }
 };
 
-module.exports = { getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe };
+module.exports = {
+  getRecipes,
+  getRecipe,
+  addRecipe,
+  editRecipe,
+  deleteRecipe,
+  searchRecipes,
+};

@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //Routes
+app.use("/", require("./routes/userRoute"));
 app.use("/recipe", require("./routes/recipeRoute"));
 
 //PORTS

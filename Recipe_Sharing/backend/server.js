@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 //env config
 dotenv.config();
@@ -16,9 +17,11 @@ const app = express();
 app.use(express.json());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cors());
 
 //Routes
-app.use("/", require("./routes/userRoute"));
+// After
+app.use("/user", require("./routes/userRoute"));
 app.use("/recipe", require("./routes/recipeRoute"));
 
 //PORTS

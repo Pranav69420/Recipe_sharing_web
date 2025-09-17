@@ -20,7 +20,8 @@ app.use(morgan("dev"));
 app.use(cors());
 
 //Routes
-app.use("/", require("./routes/userRoute"));
+// After
+app.use("/user", require("./routes/userRoute"));
 app.use("/recipe", require("./routes/recipeRoute"));
 
 //PORTS

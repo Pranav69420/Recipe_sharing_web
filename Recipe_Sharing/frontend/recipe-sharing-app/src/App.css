@@ -1,21 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* Define consistent colors for easy changes */
 :root {
-  --pastel-green: #D4EFDF; /*Pastel Green for body background */
-  --dark-green-text: #0A6847; /* Dark Green for general text */
-  --darker-green-headings: #0C4234; /* Slightly darker green for headings */
-  --dark-green-bg: #0C4234; /* Using a very dark green for backgrounds*/
-
-
-
-  --primary-button-bg: #213547; /* Your current button background*/
-  --light-text-on-dark: white; /* White text on dark backgrounds */
-  --header-bg: #ffffff; /* Header will be white */
-  --border-color: rgb(156 163 175); /* Consistent border color */
-  --link-blue: #307bbd; /* Specific blue for links in forms */
-  --error-red: red; /* Error text color */
-  --delete-red: rgb(239, 53, 53); /* Delete icon color */
+  --pastel-green: #D4EFDF;
+  --dark-green-text: #0A6847;
+  --darker-green-headings: #0C4234;
+  --dark-green-bg: #0C4234;
+  --primary-button-bg: #0C4234;
+  --light-text-on-dark: white;
+  --header-bg: #ffffff;
+  --border-color: rgb(156 163 175);
+  --link-blue: #307bbd;
+  --error-red: red;
+  --delete-red: rgb(239, 53, 53);
+  --secondary-bg: #bde0c6;
 }
 
 
@@ -28,8 +25,8 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--pastel-green); /* Pastel green body background */
-  color: var(--dark-green-text); /* Default dark green text color */
+  background-color: var(--pastel-green);
+  color: var(--dark-green-text);
 }
 
 header {
@@ -41,7 +38,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: var(--header-bg); /* Header background is white */
+  background-color: var(--header-bg);
 }
 
 header ul {
@@ -108,7 +105,7 @@ section {
 
 .home a:hover {
   color: var(--light-text-on-dark);
-  background-color: #2c4860; 
+  background-color: #2c4860;
 }
 
 .home .left h5 {
@@ -122,7 +119,7 @@ section {
 }
 
 .bg svg path {
-  fill: var(--dark-green-bg); /* Dark green for SVG background */
+  fill: var(--dark-green-bg);
 }
 
 .card-container {
@@ -142,16 +139,16 @@ section {
 
 
 .card-body {
-  background-color: var(--dark-green-bg); 
+  background-color: var(--dark-green-bg);
   padding: 1rem;
-  color: var(--light-text-on-dark); 
+  color: var(--light-text-on-dark);
 }
 
 .card-body .title {
   margin-bottom: 5px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--light-text-on-dark); 
+  color: var(--light-text-on-dark);
 }
 
 .card-body .icons {
@@ -178,31 +175,18 @@ section {
 }
 
 .editIcon {
-  color: var(--light-text-on-dark); 
+  color: var(--light-text-on-dark);
   font-size: 18px;
 }
 
 .action a:hover {
-  color: var(--light-text-on-dark); 
+  color: var(--light-text-on-dark);
 }
 
 .deleteIcon {
-  color: var(--delete-red); 
+  color: var(--delete-red);
   font-size: 20px;
   cursor: pointer;
-}
-
-.modal {
-  position: fixed;
-  top: 34%;
-  z-index: 10;
-  padding: 2rem;
-  border-radius: 6px;
-  border: none;
-  left: 30%;
-  width: 40%;
-  color: var(--dark-green-text); 
-  background-color: var(--header-bg);
 }
 
 .backdrop {
@@ -212,7 +196,21 @@ section {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
-  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  background-color: var(--header-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  color: var(--dark-green-text);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  position: relative;
 }
 
 .form {
@@ -222,28 +220,29 @@ section {
 }
 
 .form-header {
-  background-color: var(--dark-green-bg); 
+  background-color: var(--dark-green-bg);
   height: 3px;
   text-align: center;
 }
 
 .form-control {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: center;    
+  gap: 1rem;            
   margin-top: 1rem;
 }
 
 .form-control label {
-    color: var(--dark-green-text);
+  color: var(--dark-green-text);
+  flex-shrink: 0;        
 }
 
 .form-control .input,
 .form-control .input-textarea {
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  flex-basis: 70%;
-  padding: 2px;
+  flex: 1;                
+  padding: 8px;
   color: var(--dark-green-text);
   background-color: var(--header-bg);
 }
@@ -251,10 +250,10 @@ section {
 .form button {
   margin: 2rem 0;
   border: none;
-  background-color: var(--dark-green-bg); 
+  background-color: var(--dark-green-bg);
   font-size: 14px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  color: var(--light-text-on-dark); 
+  color: var(--light-text-on-dark);
 }
 
 .form p {
@@ -326,5 +325,5 @@ section {
 
 .active {
   color: var(--dark-green-text) !important;
-  background-color: var(--secondary-bg); 
+  background-color: var(--secondary-bg);
 }
